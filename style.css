@@ -1,0 +1,246 @@
+
+/* 1. Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* 2. Social Media Background */
+#socialFeed {
+  width: 100%;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+#socialFeed h1 {
+  text-align: center;
+}
+
+#posts {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.post {
+  background-color: white;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  min-height: 200px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* 3. Error Popup */
+#errorPopup {
+  transition: width 0.4s ease, height 0.4s ease,
+            left 0.5s ease, top 0.5s ease;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 360px;
+  max-width: 95vw;
+  min-height: 280px;
+
+  background-color: white;
+  border: 2px solid #333;
+  border-radius: 12px;
+
+  z-index: 100;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  
+  max-height: 95vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 4. Popup Header */
+#popupHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px 15px;
+  background-color: #e8e8e8;
+}
+
+#popupHeader h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+#closeButton {
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* 5. Error Character */
+#errorCharacter {
+  text-align: center;
+  padding: 30px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#errorFace {
+  font-size: 55px;
+  margin-bottom: 15px;
+}
+
+#errorMessage {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* 6. Chat Form */
+#chatForm {
+  display: flex;
+  gap: 8px;
+  padding: 15px;
+}
+
+#chatInput {
+  flex: 1;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+}
+
+#sendButton {
+  padding: 10px 15px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* 7. Hearts Container */
+#heartsContainer {
+  pointer-events: none;
+}
+
+
+
+@keyframes violentShake {
+  0%   { transform: translate(-50%, -50%) translateX(0); }
+  20%  { transform: translate(-50%, -50%) translateX(-14px) rotate(-3deg); }
+  40%  { transform: translate(-50%, -50%) translateX(14px) rotate(3deg); }
+  60%  { transform: translate(-50%, -50%) translateX(-12px) rotate(-2deg); }
+  80%  { transform: translate(-50%, -50%) translateX(12px) rotate(2deg); }
+  100% { transform: translate(-50%, -50%) translateX(0); }
+}
+
+#errorPopup.violent-shake {
+  animation: violentShake 0.12s linear 8;
+}
+
+
+#heartsContainer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  bottom: 25%;
+  font-size: 26px;
+  animation: floatHeart 1.8s ease-out forwards;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-180px) scale(1.4);
+    opacity: 0;
+  }
+}
+
+
+#errorPopup.dragging {
+  transition: none;
+}
+
+#popupHeader {
+  cursor: grab;
+  user-select: none;
+}
+
+#errorPopup.dragging #popupHeader {
+  cursor: grabbing;
+}
+
+#errorPopup.forever-together {
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: none;
+  max-height: none;
+
+  top: 50% !important;
+  left: 50% !important;
+
+  border-radius: 0;
+  border: none;
+  z-index: 9999;
+}
+
+#errorPopup.forever-together #errorFace {
+  font-size: clamp(80px, 15vw, 180px);
+}
+
+#errorPopup.forever-together #errorMessage {
+  font-size: 24px;
+  font-weight: bold;
+  max-width: 80%;
+  text-align: center;
+}
+
+#errorPopup.forever-together #closeButton {
+  display: none;
+}
+
+
+#resetButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10000;
+
+  padding: 10px 18px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#resetButton:hover {
+  background-color: #555;
+}
+

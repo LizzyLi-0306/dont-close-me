@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Don't Close Me!</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- Background: Social Media Page -->
+  <main id="socialFeed">
+    <header>
+      <h1>Social Feed</h1>
+    </header>
+
+    <section id="posts">
+      <article class="post">
+        <h2>Post 1</h2>
+        <p>Just another day on the internet...</p>
+      </article>
+
+      <article class="post">
+        <h2>Post 2</h2>
+        <p>Look at this cute cat!</p>
+      </article>
+
+      <article class="post">
+        <h2>Post 3</h2>
+        <p>Keep scrolling for more!</p>
+      </article>
+      
+      <article class="post">
+      <h2>Post 4</h2>
+      <p>Another interesting update!</p>
+      </article>
+
+      <article class="post">
+      <h2>Post 5</h2>
+      <p>What a beautiful day!</p>
+      </article>
+
+      <article class="post">
+      <h2>Post 6</h2>
+      <p>Keep scrolling...</p>
+      </article>
+    </section>
+  </main>
+
+  <!-- Foreground: Error Popup -->
+  <section id="errorPopup" role="dialog"
+           aria-label="Error popup">
+
+    <header id="popupHeader">
+      <h2>Error.exe</h2>
+      <button id="closeButton" type="button">×</button>
+    </header>
+
+    <div id="errorCharacter">
+      <div id="errorFace">•ᴗ•</div>
+      <p id="errorMessage">Hey! Talk to me!</p>
+    </div>
+
+    <form id="chatForm">
+      <input
+        type="text"
+        id="chatInput"
+        placeholder="Say something..."
+        autocomplete="off"
+      >
+      <button type="submit" id="sendButton">Send</button>
+    </form>
+
+    <div id="heartsContainer" aria-hidden="true"></div>
+
+  </section>
+<button id="resetButton" type="button">↻ Reset</button>
+</body>
+</html>
